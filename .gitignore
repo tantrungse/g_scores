@@ -38,3 +38,5 @@
 !/app/assets/builds/.keep
 
 /node_modules
+
+/db/diem_thi_thpt_2024.csv
