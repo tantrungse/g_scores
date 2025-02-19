@@ -70,3 +70,6 @@ group :test do
 end
 
 gem 'foreman', github: 'ddollar/foreman'
+
+gem 'pg'
+gem 'smarter_csv'
