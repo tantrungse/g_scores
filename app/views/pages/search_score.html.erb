@@ -1,0 +1,108 @@
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6"><h3 class="mb-0">Search scores</h3></div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Search scores</li>
+                </ol>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row g-4">
+              <!--begin::Col-->
+              <div class="col-md-9">
+                <!--begin::Quick Example-->
+                <div class="card card-primary card-outline mb-4">
+                  <!--begin::Header-->
+                  <div class="card-header"><div class="card-title">User Registration</div></div>
+                  <!--end::Header-->
+                  <!--begin::Form-->
+                  <form>
+                    <!--begin::Body-->
+                    <div class="card-body">
+                      <div class="mb-3">
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                          placeholder="Enter registration number"
+                        />
+                      </div>
+                    </div>
+                    <!--end::Body-->
+                    <!--begin::Footer-->
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <!--end::Footer-->
+                  </form>
+                  <!--end::Form-->
+                </div>
+                <!--end::Quick Example-->
+
+                <!--begin::Student Scores Table-->
+                <div class="card">
+                  <div class="card-header"><h3 class="card-title">Student Score Details</h3></div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Exam ID</th>
+                            <th>Math</th>
+                            <th>Literature</th>
+                            <th>Foreign Language</th>
+                            <th>Physics</th>
+                            <th>Chemistry</th>
+                            <th>Biology</th>
+                            <th>History</th>
+                            <th>Geography</th>
+                            <th>Civic Education</th>
+                            <th>Foreign Language Code</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% @student_scores.each do |score| %>
+                            <tr>
+                              <td><%= score.sbd %></td>
+                              <td><%= score.toan %></td>
+                              <td><%= score.ngu_van %></td>
+                              <td><%= score.ngoai_ngu %></td>
+                              <td><%= score.vat_li %></td>
+                              <td><%= score.hoa_hoc %></td>
+                              <td><%= score.sinh_hoc %></td>
+                              <td><%= score.lich_su %></td>
+                              <td><%= score.dia_li %></td>
+                              <td><%= score.gdcd %></td>
+                              <td><%= score.ma_ngoai_ngu %></td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <!--end::Student Scores Table-->
+              </div>
+              <!--end::Col-->
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content-->
