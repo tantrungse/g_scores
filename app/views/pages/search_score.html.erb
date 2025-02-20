@@ -24,33 +24,28 @@
             <!--begin::Row-->
             <div class="row g-4">
               <!--begin::Col-->
-              <div class="col-md-9">
+              <div class="col-md-12">
                 <!--begin::Quick Example-->
                 <div class="card card-primary card-outline mb-4">
                   <!--begin::Header-->
                   <div class="card-header"><div class="card-title">User Registration</div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
-                  <form>
+                  <%= form_with url: pages_search_score_path, method: :get, local: true do %>
                     <!--begin::Body-->
                     <div class="card-body">
                       <div class="mb-3">
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="exampleInputEmail1"
-                          aria-describedby="emailHelp"
-                          placeholder="Enter registration number"
-                        />
+                        <%= label_tag :sbd, "Enter registration number", class: "form-label" %>
+                        <%= text_field_tag :sbd, params[:sbd], class: "form-control", placeholder: "Enter registration number", required: true %>
                       </div>
                     </div>
                     <!--end::Body-->
                     <!--begin::Footer-->
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <%= submit_tag "Submit", class: "btn btn-primary" %>
                     </div>
                     <!--end::Footer-->
-                  </form>
+                  <% end %>
                   <!--end::Form-->
                 </div>
                 <!--end::Quick Example-->
@@ -63,7 +58,7 @@
                       <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th>Exam ID</th>
+                            <th>Registration ID</th>
                             <th>Math</th>
                             <th>Literature</th>
                             <th>Foreign Language</th>
@@ -77,21 +72,25 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <% @student_scores.each do |score| %>
+                            <% if @student_score.present? %>
                             <tr>
-                              <td><%= score.sbd %></td>
-                              <td><%= score.toan %></td>
-                              <td><%= score.ngu_van %></td>
-                              <td><%= score.ngoai_ngu %></td>
-                              <td><%= score.vat_li %></td>
-                              <td><%= score.hoa_hoc %></td>
-                              <td><%= score.sinh_hoc %></td>
-                              <td><%= score.lich_su %></td>
-                              <td><%= score.dia_li %></td>
-                              <td><%= score.gdcd %></td>
-                              <td><%= score.ma_ngoai_ngu %></td>
+                              <td><%= @student_score&.sbd %></td>
+                              <td><%= @student_score&.toan %></td>
+                              <td><%= @student_score&.ngu_van %></td>
+                              <td><%= @student_score&.ngoai_ngu %></td>
+                              <td><%= @student_score&.vat_li %></td>
+                              <td><%= @student_score&.hoa_hoc %></td>
+                              <td><%= @student_score&.sinh_hoc %></td>
+                              <td><%= @student_score&.lich_su %></td>
+                              <td><%= @student_score&.dia_li %></td>
+                              <td><%= @student_score&.gdcd %></td>
+                              <td><%= @student_score&.ma_ngoai_ngu %></td>
                             </tr>
-                          <% end %>
+                            <% else %>
+                            <tr>
+                              <td colspan="11" class="text-center">Please input valid Registration ID</td>
+                            </tr>
+                            <% end %>
                         </tbody>
                       </table>
                     </div>
