@@ -52,6 +52,40 @@
                   </div>
                 </div>
                 <!-- /.card -->
+
+                <!-- Top 10 Students Table -->
+                <div class="card">
+                  <div class="card-header border-0">
+                    <h3 class="card-title">Top 10 Students of Group A</h3>
+                  </div>
+                  <div class="card-body">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Rank</th>
+                          <th>Register ID</th>
+                          <th>Math</th>
+                          <th>Physics</th>
+                          <th>Chemistry</th>
+                          <th>Total Score</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @top_students.each_with_index do |student, index| %>
+                          <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= student.sbd %></td>
+                            <td><%= student.toan %></td>
+                            <td><%= student.vat_li %></td>
+                            <td><%= student.hoa_hoc %></td>
+                            <td><%= student.total_score %></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- /.card -->
               </div>
             </div>
             <!--end::Row-->

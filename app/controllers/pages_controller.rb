@@ -12,6 +12,14 @@ class PagesController < ApplicationController
         weak: StudentScore.where("#{subject} < ?", 4).count
       }
     end
+
+    @top_students = StudentScore
+      .where.not(toan: nil)
+      .where.not(vat_li: nil)
+      .where.not(hoa_hoc: nil)
+      .select("sbd, toan, vat_li, hoa_hoc, (toan + vat_li + hoa_hoc) AS total_score")
+      .order(total_score: :desc)
+      .limit(10)
   end
 
   def search_score
